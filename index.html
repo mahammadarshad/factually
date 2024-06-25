@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Non-Fiction Books</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.jpg" alt="Factually Logo" height="40"> <!-- Adjust height as needed -->
+                Factually
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="requestabook.html">Requests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="analytics.html">Insights & Trends</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Welcome to Factually!</h1>
+        <p>Discover a world of knowledge and insights through our collection of non-fiction books.</p>
+        
+        <h2>Genres</h2>
+        <div class="btn-group mb-3">
+            <button class="btn btn-secondary" onclick="filterBooks('all')">All</button>
+            <button class="btn btn-secondary" onclick="filterBooks('History')">History</button>
+            <button class="btn btn-secondary" onclick="filterBooks('Science')">Science</button>
+            <button class="btn btn-secondary" onclick="filterBooks('Biography')">Biography</button>
+            <button class="btn btn-secondary" onclick="filterBooks('Self-Help')">Self-Help</button>
+            <!-- Add more genre buttons as needed -->
+        </div>
+        
+        <h2>Book List</h2>
+        <ul class="list-group" id="bookList">
+            <li class="list-group-item" data-genre="History">A Vindication of the Rights of Woman by Mary Wollstonecraft (1792)</li>
+            <li class="list-group-item" data-genre="Science">On the Origin of Species by Charles Darwin (1859)</li>
+            <li class="list-group-item" data-genre="History">The Souls of Black Folk by W.E.B. Du Bois (1903)</li>
+            <li class="list-group-item" data-genre="History">Nationalism by Rabindranath Tagore (1917)</li>
+            <li class="list-group-item" data-genre="Biography">A Room of One’s Own by Virginia Woolf (1929)</li>
+            <li class="list-group-item" data-genre="History">Hiroshima by John Hersey (1946)</li>
+            <li class="list-group-item" data-genre="Science">Silent Spring by Rachel Carson (1962)</li>
+            <li class="list-group-item" data-genre="History">The Fire Next Time by James Baldwin (1963)</li>
+            <li class="list-group-item" data-genre="History">Sapiens: A Brief History of Humankind by Yuval Noah Harari (2011)</li>
+            <li class="list-group-item" data-genre="Biography">The Immortal Life of Henrietta Lacks by Rebecca Skloot (2010)</li>
+            <li class="list-group-item" data-genre="Biography">Educated by Tara Westover (2018)</li>
+            <li class="list-group-item" data-genre="Biography">Becoming by Michelle Obama (2018)</li>
+            <li class="list-group-item" data-genre="Biography">The Diary of a Young Girl by Anne Frank (1947)</li>
+            <li class="list-group-item" data-genre="Self-Help">The Elements of Style by William Strunk Jr. and E.B. White (1959)</li>
+            <li class="list-group-item" data-genre="Science">Guns, Germs, and Steel: The Fates of Human Societies by Jared Diamond (1997)</li>
+            <li class="list-group-item" data-genre="Self-Help">The Power of Habit: Why We Do What We Do in Life and Business by Charles Duhigg (2012)</li>
+            <li class="list-group-item" data-genre="Science">Thinking, Fast and Slow by Daniel Kahneman (2011)</li>
+            <li class="list-group-item" data-genre="Science">The Sixth Extinction: An Unnatural History by Elizabeth Kolbert (2014)</li>
+            <li class="list-group-item" data-genre="Self-Help">Quiet: The Power of Introverts in a World That Can't Stop Talking by Susan Cain (2012)</li>
+            <li class="list-group-item" data-genre="Science">The Man Who Mistook His Wife for a Hat and Other Clinical Tales by Oliver Sacks (1985)</li>
+            <li class="list-group-item" data-genre="Science">The Selfish Gene by Richard Dawkins (1976)</li>
+            <li class="list-group-item" data-genre="Biography">Into the Wild by Jon Krakauer (1996)</li>
+            <li class="list-group-item" data-genre="Science">The Emperor of All Maladies: A Biography of Cancer by Siddhartha Mukherjee (2010)</li>
+            <li class="list-group-item" data-genre="Science">Cosmos by Carl Sagan (1980)</li>
+            <li class="list-group-item" data-genre="Science">The Right Stuff by Tom Wolfe (1979)</li>
+            <li class="list-group-item" data-genre="Self-Help">Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen by Christopher McDougall (2009)</li>
+            <li class="list-group-item" data-genre="History">Homo Deus: A Brief History of Tomorrow by Yuval Noah Harari (2015)</li>
+            <li class="list-group-item" data-genre="History">In Cold Blood by Truman Capote (1966)</li>
+            <li class="list-group-item" data-genre="Science">The Omnivore's Dilemma: A Natural History of Four Meals by Michael Pollan (2006)</li>
+            <li class="list-group-item" data-genre="Self-Help">The Tipping Point: How Little Things Can Make a Big Difference by Malcolm Gladwell (2000)</li>
+            <li class="list-group-item" data-genre="History">The Art of War by Sun Tzu (5th century BC)</li>
+            <li class="list-group-item" data-genre="Self-Help">Outliers: The Story of Success by Malcolm Gladwell (2008)</li>
+            <li class="list-group-item" data-genre="Science">Freakonomics: A Rogue Economist Explores the Hidden Side of Everything by Steven D. Levitt and Stephen J. Dubner (2005)</li>
+            <li class="list-group-item" data-genre="Biography">The Year of Magical Thinking by Joan Didion (2005)</li>
+            <li class="list-group-item" data-genre="Science">The Black Swan: The Impact of the Highly Improbable by Nassim Nicholas Taleb (2007)</li>
+            <li class="list-group-item" data-genre="Science">The Signal and the Noise: Why So Many Predictions Fail — But Some Don't by Nate Silver (2012)</li>
+            <li class="list-group-item" data-genre="Science">The Gene: An Intimate History by Siddhartha Mukherjee (2016)</li>
+            <li class="list-group-item" data-genre="History">The Warmth of Other Suns: The Epic Story of America's Great Migration by Isabel Wilkerson (2010)</li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Factually</p>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function filterBooks(genre) {
+            var books = document.querySelectorAll('#bookList .list-group-item');
+            books.forEach(function(book) {
+                if (genre === 'all' || book.getAttribute('data-genre') === genre) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

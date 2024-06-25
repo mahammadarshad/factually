@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics - Non-Fiction Books</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Factually</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="requestabook.html">Requests</a></li>
+                <li class="nav-item"><a class="nav-link" href="analytics.html">Insights & Trends</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="text-center mt-5">
+        <h1>Insights & Trends</h1>
+        <p>Analyze the data of non-fiction books using various visualizations.</p>
+    </header>
+    <main class="container">
+        <!-- Chart 1: Distribution of Books by Category -->
+        <section class="mt-5">
+            <h2>Distribution of Books by Category</h2>
+            <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </section>
+        
+        <!-- Chart 2: Number of Books Added Over Time -->
+        <section class="mt-5">
+            <h2>Number of Books Added Over Time</h2>
+            <canvas id="timeChart" width="400" height="200"></canvas>
+        </section>
+        
+        <!-- Chart 3: Popularity of Authors -->
+        <section class="mt-5">
+            <h2>Popularity of Authors</h2>
+            <canvas id="authorChart" width="400" height="200"></canvas>
+        </section>
+
+    </main>
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 Non-Fiction Books</p>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Chart 1: Distribution of Books by Category
+        var ctx1 = document.getElementById('categoryChart').getContext('2d');
+        var categoryChart = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Biography', 'Science', 'History', 'Self-Help', 'Travel'],
+                datasets: [{
+                    label: 'Books by Category',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + ' books';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart 2: Number of Books Added Over Time
+        var ctx2 = document.getElementById('timeChart').getContext('2d');
+        var timeChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Books Added',
+                    data: [5, 8, 6, 12, 7, 10], // Adjusted data for natural ups and downs
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart 3: Popularity of Authors
+        var ctx3 = document.getElementById('authorChart').getContext('2d');
+        var authorChart = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['Yuval Noah Harari', 'Michelle Obama', 'Charles Darwin', 'Malcolm Gladwell', 'Rachel Carson'],
+                datasets: [{
+                    label: 'Books by Author',
+                    data: [10, 20, 15, 25, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
