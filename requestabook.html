@@ -68,7 +68,34 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // JavaScript for handling book request functionality
+        document.getElementById('bookForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const year = document.getElementById('year').value;
+
+            // Create a new row for the book request
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${title}</td>
+                <td>${author}</td>
+                <td>${year}</td>
+                <td><button class="btn btn-danger btn-sm" onclick="deleteBook(this)">Delete</button></td>
+            `;
+
+            // Append the new row to the book list
+            document.getElementById('bookList').appendChild(newRow);
+
+            // Clear form fields
+            document.getElementById('bookForm').reset();
+        });
+
+        function deleteBook(button) {
+            // Remove the row containing the clicked button
+            button.parentElement.parentElement.remove();
+        }
     </script>
 </body>
 </html>
